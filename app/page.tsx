@@ -22,7 +22,7 @@ export default function WeatherDashboard() {
       if (!res.ok) throw new Error('Failed to fetch weather data')
       const data = await res.json()
       setWeatherData(data)
-    } catch (err) {
+    } catch {
       setError('Failed to fetch weather data. Please try again.')
     } finally {
       setLoading(false)
@@ -50,4 +50,3 @@ export default function WeatherDashboard() {
     </div>
   )
 }
-
