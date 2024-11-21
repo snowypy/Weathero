@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Cloud, Droplets, Thermometer, Wind } from 'lucide-react'
+import { Droplets, Thermometer, Wind } from 'lucide-react'
+import Image from 'next/image'
 
 interface WeatherData {
   location: string
@@ -22,9 +23,11 @@ export default function WeatherDisplay({ data }: { data: WeatherData }) {
       </CardHeader>
       <CardContent>
         <div className="flex flex-col items-center">
-          <img
+          <Image
             src={`https:${data.icon}`}
             alt={data.condition}
+            width={96}
+            height={96}
             className="w-24 h-24"
           />
           <p className="text-4xl font-bold mb-2">{Math.round(data.temperature)}°C</p>
@@ -48,4 +51,3 @@ export default function WeatherDisplay({ data }: { data: WeatherData }) {
     </Card>
   )
 }
-
